@@ -1,3 +1,5 @@
+from curses.ascii import isalpha
+import email
 import re
 from email_validator import validate_email, EmailNotValidError
 
@@ -23,4 +25,20 @@ def check_mail_module(email):
     except EmailNotValidError as e:
         print(str(e))
 
-check_mail_module(e_mail)
+#check_mail_module(e_mail)
+
+
+#manual email validation
+def valid(email):
+    if len(email) >= 7:
+        if email[0].isalpha() and  email.count(' ') ==0:
+            if '@'  and '.' in email and email.count('@') == 1:
+                print("Valid Email")
+            else:
+                print('Invalid Email 3')
+        else :
+            print('Invalid Email 2')
+    else :
+        print('Invalid Email 3')
+
+valid(e_mail)
