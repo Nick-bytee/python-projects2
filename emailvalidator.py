@@ -29,11 +29,22 @@ def check_mail_module(email):
 
 
 #manual email validation
+
 def valid(email):
+    l = 0
+    k = 0
     if len(email) >= 7:
         if email[0].isalpha() and  email.count(' ') ==0:
             if '@'  and '.' in email and email.count('@') == 1:
-                print("Valid Email")
+                for i in email:
+                    if i.isupper():
+                        l = 1
+                    elif email[-4] != '.' or email[-3] != '.':
+                        k = 1
+                if l == 1 :
+                    print('Invalid Email 4')
+                elif k ==1 :
+                    print('Valid Email')
             else:
                 print('Invalid Email 3')
         else :
